@@ -16,17 +16,21 @@ class ContactController extends Controller
     
     public function store(Request $request)
     {
-    $this->validate($request, [
-        'nom' => 'bail|required|nom',
-        'email' => 'bail|required|email',
-        'message' => 'bail|required|max:500'
+        // dd(\App\Models\Contact::create ($request->all ()));
+    // $this->validate($request, [
+       
+        \App\Models\Contact::create([
+        'nom' => $request->nom,
+        'email' => $request->email,
+        'message' => $request->message ,
+
     ]);
 
-    $contact = new \App\Models\Contact;
-    $contact->nom = $request->nom;
-    $contact->email = $request->email;
-    $contact->message = $request->message;
-    $contact->save();
+    // $contact = new \App\Models\Contact;
+    // $contact->nom = $request->nom;
+    // $contact->email = $request->email;
+    // $contact->message = $request->message;
+    // $contact->save();
 
     return "C'est bien enregistré !";
     }
