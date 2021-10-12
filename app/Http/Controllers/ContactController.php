@@ -36,7 +36,7 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request){
         Mail::to('administrateur@roger.com')
         ->send(new Contact($request->except('_token')));
-        return view('/');
+        return view('mail/mail');
     }
     
 }
