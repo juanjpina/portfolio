@@ -24,3 +24,4 @@ use App\Http\Controllers\ContactController;
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('contact', [ContactController::class, 'contact']);
 Route::post('contact', [ContactController::class, 'store']);
+Route::post('contact', [ContactController::class, 'confirm']);

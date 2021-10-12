@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
 
 class ContactController extends Controller
 {
@@ -33,7 +36,7 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request){
         Mail::to('administrateur@roger.com')
         ->send(new Contact($request->except('_token')));
-        return view('layout.confirm');
+        return view('/');
     }
     
 }
